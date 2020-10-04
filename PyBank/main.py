@@ -29,8 +29,7 @@ def pybank(data):
     date_list = []
     net_list = []
 
-# Count number of months in dataset 
-
+# Begin the loop with for
     for row in data:
         tot_months += 1
         net_amt += float(row[1])
@@ -47,13 +46,13 @@ def pybank(data):
              
         elif change == 0:
             change = int(row[1])  
-            # Remove 1st month from date_list since there is no change that occurs
+            # Remove the first month from date_list since there is no change that occurs
             date_list.pop(0)
             
     # Find the index position of the greatest increase in profits
     indxmax = net_list.index(max(net_list))
             
-    # Find the index position of the greatest decrease in profits
+    # Find the index position of the greatest decrease in losses
     indxmin = net_list.index(min(net_list))
             
     # Use index positions to find the month that corresponds with max and min values from the net_list 
