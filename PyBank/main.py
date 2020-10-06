@@ -46,7 +46,7 @@ def pybank(data):
              
         elif change == 0:
             change = int(row[1])  
-            # Remove the first month from date_list since there is no change that occurs
+            # Remove the first month from date_list since no change occurs
             date_list.pop(0)
             
     # Find the index position of the greatest increase in profits
@@ -73,7 +73,7 @@ def pybank(data):
     print(f'Greatest Loss In Profits: {min_losses}')
 
     # Set the path for the text file 
-    pybank_output = os.path.join("PyBank_Analysis.txt")    
+    pybank_output = os.path.join('Resources', "PyBank_Analysis.txt")    
 
     # Write script to create text file with results 
     with open(pybank_output, 'w') as text:

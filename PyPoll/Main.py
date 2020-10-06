@@ -22,14 +22,14 @@ def percentage (part, whole):
 def pypoll(data):
     # Define variables 
     # Reset the vote counts to zero
-    totalcount = 0; khan = 0; correy = 0; li = 0; otooley = 0; max_votecount = 0
-    voterid = [0]  
+    total_count = 0; khan = 0; correy = 0; li = 0; otooley = 0; vote_count = 0
+    voter_id = [0]  
     candidate = [2]
 
     # Begin the loop with for
     for i in data:
         # Find total count of votes 
-        totalcount = totalcount + 1
+        total_count = total_count + 1
     
         # Find votecount by candidates
         candidate = i[2]
@@ -43,23 +43,23 @@ def pypoll(data):
            otooley = otooley + 1
                 
         # Create a list 
-        candidatevote = {"Khan": khan,"Correy": correy,"Li" :li, "O'Tooley": otooley}
+        candidate_vote = {"Khan": khan,"Correy": correy,"Li" :li, "O'Tooley": otooley}
         
     # Find the winner 
-    for candidate, value in candidatevote.items():
-        if value > max_votecount:
-            max_votecount = value
+    for candidate, value in candidate_vote.items():
+        if value > vote_count:
+            vote_count = value
             winner = candidate
                 
     # Print the results       
     print(f'Election Results'+'\n')
     print(f'-------------------------------'+'\n')
-    print(f'Total Votes: {totalcount}'+'\n')
+    print(f'Total Votes: {total_count}'+'\n')
     print(f'-------------------------------'+'\n')
-    print(f'Khan: {percentage(khan,totalcount):.3f}%  ({khan})')
-    print(f'Correy: {percentage(correy, totalcount):.3f}%  ({correy})')
-    print(f'Li: {percentage(li, totalcount):.3f}%  ({li})')
-    print(f'O\'Tooley: {percentage(otooley, totalcount):.3f}%  ({otooley})')
+    print(f'Khan: {percentage(khan,total_count):.3f}%  ({khan})')
+    print(f'Correy: {percentage(correy, total_count):.3f}%  ({correy})')
+    print(f'Li: {percentage(li, total_count):.3f}%  ({li})')
+    print(f'O\'Tooley: {percentage(otooley, total_count):.3f}%  ({otooley})')
     print(f'--------------------------------'+'\n')
     print(f'Winner: {winner} '+'\n')
     print(f'--------------------------------'+'\n')    
@@ -71,12 +71,12 @@ def pypoll(data):
     with open(pypoll_output, 'w') as text:
         text.write(f'Election Results'+'\n')
         text.write(f'-------------------------------'+'\n')
-        text.write(f'Total Votes: {totalcount}'+'\n')
+        text.write(f'Total Votes: {total_count}'+'\n')
         text.write(f'-------------------------------'+'\n')
-        text.write(f'Khan: {percentage(khan,totalcount):.3f}%  ({khan})')
-        text.write(f'\nCorrey: {percentage(correy, totalcount):.3f}%  ({correy})')
-        text.write(f'\nLi: {percentage(li, totalcount):.3f}%  ({li})')
-        text.write(f'\nO\'Tooley: {percentage(otooley, totalcount):.3f}%  ({otooley})')
+        text.write(f'Khan: {percentage(khan,total_count):.3f}%  ({khan})')
+        text.write(f'\nCorrey: {percentage(correy, total_count):.3f}%  ({correy})')
+        text.write(f'\nLi: {percentage(li, total_count):.3f}%  ({li})')
+        text.write(f'\nO\'Tooley: {percentage(otooley, total_count):.3f}%  ({otooley})')
         text.write(f'\n--------------------------------'+'\n')
         text.write(f'Winner: {winner} '+'\n')
         text.write(f'--------------------------------'+'\n')   
